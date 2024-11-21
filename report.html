@@ -2,7 +2,7 @@
     <title>DQN report</title>
     <style>
         td {
-            width: 250px;
+            width: 350px;
             border: solid cornflowerblue;
         }
     </style>
@@ -10,18 +10,18 @@
 <body>
     <h3>Parameter tuning</h3>
     <table>
-        <tr><th></th><th>Meaning</th><th>Implementation</th><th>Value</th></tr>
-        <tr><th>A</th><td>Dimension of each hidden layer</td><td rowspan="2">Customized, constant</td><td rowspan="2">3 layers: [8, 32, 8]</td></tr>
-        <tr><th>B</th><td>Number of each hidden layers</td></tr>
-        <tr><th>C</th><td>stochastic gradient descent learning rate</td><td>Exponential decay per 30 episodes</td><td><var>lr = 9.8e-3 * 0.48^(i_episode / 30)</var></td></tr>
-        <tr><th>D</th><td>Maximum numbers of transitions stored by replay buffer</td><td>Constant</td><td>2560</td></tr>
-        <tr><th>E</th><td>Number of episodes the agent runs the task</td><td>Constant</td><td>360</td></tr>
-        <tr><th>F</th><td>eps-greedy policy Epsilon threshold</td><td>Decay, inversely proportional to number of episodes</td><td><var>eps = 1.0 / i_episode * 2</var></td></tr>
-        <tr><th>G</th><td>Reward discounting factor</td><td>Constant</td><td>0.82</td></tr>
-        <tr><th>H</th><td>Replay buffer sample size</td><td>Constant</td><td>64</td></tr>
-        <tr><th>I</th><td>The interval between two consecutive target network updates</td><td>Exponential growing with linearly decreasing rate per 30 episodes</td><td><var>interval = 15*1.6*(1.6 - 0.03*1)*(1.6 - 0.03*2)*...*(1.6 - 0.03 * i_episode/30) </var></td></tr>
+        <tr><th></th><th>Meaning</th><th>Implementation & Value</th></tr>
+        <tr><th>A</th><td>Dimension of each hidden layer</td><td>128</td></tr>
+        <tr><th>B</th><td>Number of each hidden layers</td><td>3</td></tr>
+        <tr><th>C</th><td>Stochastic gradient descent learning rate</td><td>1.2e-3</td></tr>
+        <tr><th>D</th><td>Maximum numbers of transitions stored by replay buffer</td><td>3200</td></tr>
+        <tr><th>E</th><td>Number of episodes the agent runs the task</td><td>300</td></tr>
+        <tr><th>F</th><td>eps-greedy policy Epsilon threshold</td><td>Exponetial Decay with lower bound: max(0.01, <var> 0.99 ^ i_episode</var>)</td></tr>
+        <tr><th>G</th><td>Reward discounting factor</td><td>0.99</td></tr>
+        <tr><th>H</th><td>Replay buffer sample size</td><td>128</td></tr>
+        <tr><th>I</th><td>Number steps done between two consecutive target network updates</td><td>64</td></tr>
     </table><table>
         <tr><th>Other parameters</th><th>Value</th></tr>
-        <tr><td>Weight decay</td><td>0.1</td></tr>
+        <tr><td>Stochastic gradient descent weight decay</td><td>0.1</td></tr>
     </table>
 </body>
