@@ -130,4 +130,4 @@ def loss(policy_dqn:DQN, target_dqn:DQN,
     return ((q_values - bellman_targets)**2).mean()
 
 if __name__ == "__main__":
-    print(pow(0.99, 300))
+    print(pow(0.4,6))
