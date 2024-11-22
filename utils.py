@@ -6,7 +6,7 @@ import torch.nn.functional as F
 from gymnasium.core import Env
 from torch import nn
 
-GPU = torch.device('cuda')
+GPU = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 class ReplayBuffer():
     def __init__(self, size:int):
