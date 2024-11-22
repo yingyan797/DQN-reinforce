@@ -6,6 +6,8 @@ import torch.nn.functional as F
 from gymnasium.core import Env
 from torch import nn
 
+GPU = torch.device('cuda')
+
 class ReplayBuffer():
     def __init__(self, size:int):
         """Replay buffer initialisation
@@ -49,6 +51,7 @@ class DQN(nn.Module):
         """
         super(DQN, self).__init__()
         self.layers = nn.ModuleList([nn.Linear(layer_sizes[i], layer_sizes[i+1]) for i in range(len(layer_sizes)-1)])
+        self.to(device=GPU)
     
     def forward (self, x:torch.Tensor)->torch.Tensor:
         """Forward pass through the DQN
@@ -130,4 +133,4 @@ def loss(policy_dqn:DQN, target_dqn:DQN,
     return ((q_values - bellman_targets)**2).mean()
 
 if __name__ == "__main__":
-    print(pow(0.4,6))
+    print(pow(0.98,200))
