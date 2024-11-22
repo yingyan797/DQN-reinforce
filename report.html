@@ -2,21 +2,24 @@
     <title>DQN report</title>
     <style>
         td {
-            width: 350px;
+            width: 400px;
             border: solid cornflowerblue;
+        }
+        var {
+            color: gray;
         }
     </style>
 </head>
 <body>
-    <h3>Parameter tuning</h3>
+    <h3>Table: parameter interpretation and tuning result</h3>
     <table>
         <tr><th></th><th>Meaning</th><th>Implementation & Value</th></tr>
         <tr><th>A</th><td>Dimension of each hidden layer</td><td>256</td></tr>
         <tr><th>B</th><td>Number of each hidden layers</td><td>2</td></tr>
-        <tr><th>C</th><td>Stochastic gradient descent learning rate</td><td>Exponetial Decay with lower bound: <var> max(5e-6, 5e-3 * 0.98^i_episode</var>)</td></tr>
+        <tr><th>C</th><td>Stochastic gradient descent learning rate</td><td>Exponetial Decay with lower bound: <br> <var> max(5e-6, 5e-3 * 0.98^i_episode</var>)</td></tr>
         <tr><th>D</th><td>Maximum numbers of transitions stored by replay buffer</td><td>8000</td></tr>
         <tr><th>E</th><td>Number of episodes the agent runs the task</td><td>250</td></tr>
-        <tr><th>F</th><td>eps-greedy policy Epsilon threshold</td><td>Exponetial Decay with lower bound: <var> max(0.01, 0.98^i_episode</var>)</td></tr>
+        <tr><th>F</th><td>eps-greedy policy Epsilon threshold</td><td>Exponetial Decay with lower bound: <br> <var> max(0.01, 0.98^i_episode</var>)</td></tr>
         <tr><th>G</th><td>Reward discounting factor</td><td>0.99</td></tr>
         <tr><th>H</th><td>Replay buffer sample size</td><td>128</td></tr>
         <tr><th>I</th><td>Number steps done between two consecutive target network updates</td><td>50</td></tr>
